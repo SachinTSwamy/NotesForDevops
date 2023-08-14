@@ -224,3 +224,11 @@ cgroups (To list - lscgroup)
             - Linux OS uses cgroups to manage the available hardware resources such as CPU, RAM, Disk, I/O.
             - we can control the access and also we can apply the limitations 
             - Linux location to cgroups config file (/sys/fs/cgroup)
+
+11. what is dangling image?
+
+    Dangling images are untagged Docker images that aren't used by a container 
+
+12. docker prune
+
+    The docker prune command is used to remove unused Docker images, containers, and networks.
