@@ -123,4 +123,104 @@ Layer:
     The layer is a directory that contains a bunch of files that hold differences from the previous layer. Each one is separated, immutable, and 
     read-only.
 
+6. Docker volume?
 
+Bind mount 
+      we mount a host location (file/directory) inside a container location    
+                                             docker -v <host_path>:<container_path>
+      The changes made in the host will retain in a container and also changes made inside the container in this location will retain in the host 
+      If the container is deleted host directory will not be deleted (data persistence).
+      It is not preferable to mount a single directory to multiple containers. (multiple containers processes may try to write the data to the same file which is not possible)
+
+Volumes 
+
+      They are docker-managed filesystems and we use docker commands to manage these volumes.
+      Volumes are easier to manage, backup, and migrate than bind mounts.
+      We can use different source filesystems called storage drivers (EBS, EFS, s3) 
+      The default location of docker volume is /var/lib/docker/volumes/<volume_name>
+
+EFS Mount
+
+
+7. Docker Networking
+    Publish 
+          Publish will bind the container application port to the host machine port so that 
+          we can access from the outside world with the host machine port.
+      
+          Publish = port mapping of container to host machine + Expose 
+          
+          To publish a port         
+              docker run -p <host_port>:<container_port>
+
+  Docker network types 
+    1.Bridge 
+        - This is a private internal network created by docker on the host machine by name docker0    
+        - This is the default network type for all the containers which are created without any network configurations.
+        - By default, all the containers in the same bridge can communicate with each other without any extra configuration.    
+        - We cannot use container name for communication only IP address is allowed in default bridge.
+
+    2.Custom bridge 
+        - In custom bridge containers can communicate with each other with container 
+          name and also with the IP address.
+                  To create a bridge network 
+                            docker network create --driver bridge my_bride 
+    3.Host           
+        - This driver removes the network isolation between the docker and the host.
+        - The containers are directly connected to the host machine network without the extra layer of any docker network.
+        - Shares the same TCP.IP stack and the same namespace as the host machine.  
+        - All the network interfaces which are there in the host machine are accessible by this container.   
+
+   4.None 
+        - Containers are not attached to any network by docker.
+        - All the required network configurations need to be done manually.
+        - The host or any other containers won't be able to communicate with this container until a custom network is configured.
+
+   5.Overlay 
+        - Overlay networks are meant to define network communication of containers hosted on different host machines. 
+        - To create such a network we use the ‘overlay’ driver. 
+        - The overlay driver is a native driver by docker that helps to create a single layer2 broadcast domain across containers 
+          hosted on multiple Docker host machines. 
+
+8. States of container / Lifecycle of container
+
+    1. Created - if a container is newly created and the container is not yet started.
+    2. Running - A currently running container. It means there is no problem with the container to run the process.
+    3. Exited - A container ran and completed execution with failure.
+    4. paused - A container whose process has been paused. (we can unpause the container)
+    5. Dead - if the docker daemon tried and failed to stop a container (host ram full)
+    6. Restarting - the container will be in the phase of restarting the main process.
+
+9.Docker Architecture
+
+    Docker Daemon 
+        - A background process that manages docker images, containers, network, and volumes.
+        - This Daemon constantly listens for docker API requests and processes them.
+    
+    Docker REST API 
+        - API which is used by applications to interact with the docker daemon. 
+        
+    Docker CLI 
+        - It is a command line interface for interacting with the docker daemon through REST API.
+    
+    Docker Objects 
+        - Images, Containers, Networks, Volumes
+
+10. Namespaces and cgroups
+    - Docker uses Linux namespaces to provide isolated workspace for processes called container
+    - when a container is created, docker creates a set of namespaces for it and provides a layer of isolation for the container.
+    - Each container run in a different namespace 
+    
+    namespaces (To list - lsns)
+
+        pid - namespace for managing processes (process isolation)
+        user - namespace for non-root user on linux.
+        uts - namespace for unix timesharing system which isolates kernel and version identifiers,
+              time bonding of process.
+        ipc - (interprocess communication) namespace for managing the process communication.      
+        mnt - namespace for managing filesystem mounts.
+        net - namespace for managing network interfaces.
+
+cgroups (To list - lscgroup)
+            - Linux OS uses cgroups to manage the available hardware resources such as CPU, RAM, Disk, I/O.
+            - we can control the access and also we can apply the limitations 
+            - Linux location to cgroups config file (/sys/fs/cgroup)
