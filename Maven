@@ -18,9 +18,9 @@ Maven build lifecycle
 
 1. validate	   - validate the project is correct and all necessary information is available
 2. compile	   - compile the source code
-3. test	       - test the compiled source code using a unit testing
+3. test	           - test the compiled source code using a unit testing
 4. package	   - take the compiled code and package it in its distributable format, such as a JAR
-5. integration - test deploy the package into an environment where integration tests can be run
+5. integration     - test deploy the package into an environment where integration tests can be run
 6. verify	   - verify the package is valid and meets quality criteria
 7. install	   - install the package into the local repository
 8. deploy	   - publish build to integration or release environment 
@@ -76,7 +76,7 @@ Maven standard directory structure.
 	test - The test directory contains the test source code.
 		   java - The Java unit test code for the tests to test the source code (usually JUnit test).
 		   resources - The resources directory contains the resources needed by your project.
-	target - The target directory is created by Maven. It contains all the compiled classes, JAR files etc.			 (output builds) 	
+	target - The target directory is created by Maven. It contains all the compiled classes, JAR files etc.	(output builds) 
 	   
 
 Maven Repository
@@ -90,10 +90,11 @@ Maven Repository
 		
 		2. Central Repository
 			- Maven central repository is repository managed by Maven community.
-			- Maven central repository contains a large number of commonly used libraries. And we can publish our own libraries to Maven central 
-        repository as well.
-			- When Maven cannot find any dependency jar file in your local repository, it starts searching 	  in Maven central repository using     
-        following URL: http://repo1.maven.org/maven2/.
+			- Maven central repository contains a large number of commonly used libraries. And we can publish our own libraries to 
+                          Maven central repository as well.
+			- When Maven cannot find any dependency jar file in your local repository, it starts searching 	  in Maven central 
+                          repository using     
+                                    following URL: http://repo1.maven.org/maven2/.
 
 		3. Remote Repository
 			- Sometime we need to set up a Maven repository inside a company or a project development team to host our own libraries.
@@ -101,9 +102,9 @@ Maven Repository
 
 		Maven Dependency Search Sequence
 			Maven searches for dependency libraries in the following sequence:
-			  1. Search local dependency repository.
-			  2. Search central dependency repository
-			  3. Search the remote dependency repository
+				  1. Search local dependency repository.
+				  2. Search central dependency repository.
+				  3. Search the remote dependency repository.
 			Maven stops the searching once it finds the jar file.
 
 
