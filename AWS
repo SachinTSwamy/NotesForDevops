@@ -1,0 +1,16 @@
+1. Types of Instances?
+  General purpose
+        General Purpose instances are designed to deliver a balance of compute, memory, and network resources. They are suitable for a wide range of 
+        applications, including web servers, small databases, development and test environments, and more.
+
+  Compute optimized
+        Compute Optimized instances are ideal for compute bound application that requires high performance processor, these instance are well suited 
+        for such as batch processing, scientific modeling, gaming servers, and high-performance web servers.
+
+  Memory optimized
+        Memory Optimized instances are designed to handle memory-intensive workloads. They are suitable for applications that require large amounts 
+        of memory, such as in-memory databases, real-time big data analytics, and high-performance computing.
+
+  Storage optimized
+        Storage Optimized instances are optimized for applications that require high, sequential read and write access to large datasets. 
+        They are ideal for tasks like data warehousing, log processing, and distributed file systems.
