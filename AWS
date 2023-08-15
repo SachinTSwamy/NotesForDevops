@@ -14,3 +14,13 @@
   Storage optimized
         Storage Optimized instances are optimized for applications that require high, sequential read and write access to large datasets. 
         They are ideal for tasks like data warehousing, log processing, and distributed file systems.
+
+2. Purchasing option and cost saving?
+  Aws provides 4 main options to purchase amazon EC2 instance
+        On demand
+          
+        Reservered Instances
+
+        Spot Instances
+
+        Saving plan
