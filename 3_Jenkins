@@ -1,3 +1,10 @@
+1. What is CI/CD?
+	CI/CD stands for continuous integration and continuous delivery/deployment. It is a set of practices that automate the process of 
+        building, testing, and deploying software. CI/CD helps to improve the quality and reliability of its software. It can help to reduce the 
+        risk of bugs, improve the speed of development, and make it easier to deploy new features.
+
+
+
 Jenkins Pipeline 
     How to create a jenkins pipeline job ?
 	1. We can add pipeline configuration in 2 ways 
