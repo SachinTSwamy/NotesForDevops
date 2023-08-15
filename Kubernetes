@@ -217,7 +217,7 @@ EXAMPLE:
 
         - If we won't specify any port while creating NodePort, k8s will Automatically assign a random port between 30000 - 32767
 
-13. LoadBalancer
+ LoadBalancer
     - To exposes the Service externally we need to use an external load balancer. Kubernetes does not directly offer a load-balancing component, So To exposes the Service externally you need 
       to integrate your Kubernetes cluster with a cloud provider.
     - This service type creates load balancers in various Cloud providers like AWS, GCP, Azure, etc., to expose our application to the Internet and The Cloud provider will provide a  
