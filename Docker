@@ -2,7 +2,7 @@
 Docker is the tools that used to isolate resources to create a container that allows applications to be packaged with all the dependencies installed and run wherever we wanted.
 
 2. Virtualisation vs Containeration?
-                                  Virtualization	                                             Containerization
+                                  Virtualization	                                             Containerization 
  - Virtualization at hardware level                             	           - Virtualization at OS level
  - Heavyweight – VM carry complete operating system                          - Lightweight – Shares same host OS kernel 
  - VM uses hypervisor	                                                       - Containerisation tool is used ex: docker
