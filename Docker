@@ -1,6 +1,6 @@
 1.What is docker?
 Docker is the tools that used to isolate resources to create a container that allows applications to be packaged with all the dependencies 
- installed and run wherever we wanted.
+installed and run wherever we wanted.
 
 2. Virtualisation vs Containeration?
                                   Virtualization	                                             Containerization 
