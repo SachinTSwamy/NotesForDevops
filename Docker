@@ -24,11 +24,22 @@ Delete multiple images
 Download an image
           - docker pull <image_id>
 
-3.Docker custom image / Dockerfile / Docker instructions 
+3.Docker image?
+    - A Docker image is a read-only template that contains a set of instructions for creating a container that can run on the Docker platform.
+    - A Docker Image is a set of layers where each layer represents an instruction from the Dockerfile. The number of image layers is always  
+      equal to the number of instructions used in the Dockerfile 
+    - Docker creates a container as a temporary R/W (Read-Write) layer on top of image R/O layers. If the container is deleted, all the data on 
+      the temporary layer will also be deleted.
+
+    Layer:
+          The layer is a directory that contains a bunch of files that hold differences from the previous layer. Each one is separated, 
+          immutable, and read-only.
+
+4.Docker custom image / Dockerfile / Docker instructions 
    - Dockerfile is used to create custom images by using any stock image or other image as a base image.
    - In Dockerfile we can write some set of instructions to update any image.
 
-4.Dockerfile?
+5.Dockerfile?
   -  A Dockerfile is a text file that contains instructions on how to build a Docker image. It is a text-based file that contains a series of 
      commands that are used to create a Docker image.  
      FROM ubuntu
@@ -112,17 +123,6 @@ Download an image
               such as RUN, CMD, ENTRYPOINT, COPY, ADD ....     
                  
               ex: WORKDIR <path_in_container>
-
-5.Docker image?
-    - A Docker image is a read-only template that contains a set of instructions for creating a container that can run on the Docker platform.
-    - A Docker Image is a set of layers where each layer represents an instruction from the Dockerfile. The number of image layers is always  
-      equal to the number of instructions used in the Dockerfile 
-    - Docker creates a container as a temporary R/W (Read-Write) layer on top of image R/O layers. If the container is deleted, all the data on 
-      the temporary layer will also be deleted.
-
-Layer:
-    The layer is a directory that contains a bunch of files that hold differences from the previous layer. Each one is separated, immutable, and 
-    read-only.
 
 6. Docker volume?
 
