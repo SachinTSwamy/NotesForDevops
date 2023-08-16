@@ -228,8 +228,9 @@ cgroups (To list - lscgroup)
 
 11. what is dangling image?
 
-    Dangling images are untagged Docker images that aren't used by a container 
+    Dangling images are untagged Docker images that aren't used by a container.
 
 12. docker prune
 
     The docker prune command is used to remove unused Docker images, containers, and networks.
+      docker image prune 
