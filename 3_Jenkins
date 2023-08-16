@@ -2,7 +2,13 @@
 	CI/CD stands for continuous integration and continuous delivery/deployment. It is a set of practices that automate the process of 
         building, testing, and deploying software. CI/CD helps to improve the quality and reliability of its software. It can help to reduce the 
         risk of bugs, improve the speed of development, and make it easier to deploy new features.
+2.Maven?
+	Maven is a build automation tool used to manage Java projects. It is a powerful tool that can be used to automate the build process, to 
+        manage dependencies, and to deploy applications.
 
+3.Jenkins?
+	Jenkins is a continuous integration and continuous delivery (CI/CD) server. It is a powerful tool that can be used to automate the  
+        testing, deployment, and monitoring of applications.
 
 
 Jenkins Pipeline 
@@ -19,8 +25,7 @@ Jenkins Pipeline
 
     Jenkinsfile	
 	- It is the file in which we write all our job configuration in groovy.
-	- In our company we are using declarative pipeline in Jenkinsfile and we are maintaining 
-	  Jenkinsfile through git.	
+	
 
     Types of pipeline jobs 
 	Jenkins pipeline uses Groovy scripting which 
