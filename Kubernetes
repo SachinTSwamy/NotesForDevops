@@ -2,11 +2,13 @@
 Kubernetes or k8s for short, it is a open source platform that manages containzered application hence also called as container orcheration tool and it automates the deployment, scaling, and management of containerized applications, making it easier to manage complex applications across a cluster of machines.
 
 2. Define architecture of kubernetes?
-Kubernetes architecture is designed around master-slave model, that is control plane which manage and oversees the entire cluster it includes components like API server, etcd, scheduler, control manager and it has worker node or node it includes components like kubelet, kube proxy, CRI.
+Kubernetes architecture is designed around master-slave model, that is control plane which manage and oversees the entire cluster it includes 
+components like API server, etcd, scheduler, control manager and it has worker node or node it includes components like kubelet, kube proxy, CRI.
 CONTROL PLANE:
     1.API Server
-    	- It is the main management point of the cluster and is also called as brain of the cluster.
-      - All the components are directly connected to the API server, they communicate through the API server only and no other component will communicate directly with each other.
+      - It is the main management point of the cluster and is also called as brain of the cluster.
+      - All the components are directly connected to the API server, they communicate through the API server only and no other component will 
+        communicate directly with each other.
       - This is the only component that connects and got access to etcd.
       - All the cluster requests are authenticated and authorized by the API server.
       - The API server has a watch mechanism for watching the changes in the cluster.
@@ -19,23 +21,27 @@ CONTROL PLANE:
       - The scheduler always watches for a new pod request and decides which worker node this pod should be created.
     
     4.Controller Manager
-    	- Monitors the state of various resources in the cluster and takes corrective action if the current state deviates from the desired state.
-    	- it has some inbuild controllers such as Deployment, DaemonSet, ReplicaSet, Replication controller,node controller, jobs, cronjob, endpoint controller, namespace controller, etc.   
+      - Monitors the state of various resources in the cluster and takes corrective action if the current state deviates from the desired state.
+      - it has some inbuild controllers such as Deployment, DaemonSet, ReplicaSet, Replication controller,node controller, jobs, cronjob, 
+          endpoint controller, namespace controller, etc.   
     	
     5.Cloud controller manager
     	- These controllers help us to connect with the public cloud provider service and this component is maintained by cloud providers only.
     	
 WORKER NODE: 	
     1.Kubelet
-    	- It is an agent that runs on each and every worker node and it always watches the APIserver for pod-related changes running in its worker node.
+      - It is an agent that runs on each and every worker node and it always watches the APIserver for pod-related changes running in its  
+          worker node.
       - kubelet always makes sure that the assigned pods to its worker nodes are running.
       - kubelet is the one that communicates with the containerization tool (docker daemon) through docker API (CRI).     
       - work of kubelet is to create and run the pods. Always report the status of the worker node and each pod to the API server.
             
     2.Service proxy 
-    	 - Service proxy runs on each and every worker node and is responsible for watching the API server for any changes in service configuration (any network-related configuration).    
-       - Based on the configuration service proxy manages the entire network of worker nodes.
-       - Network proxy that is used to route traffic between pods. The Kubernetes Proxy is responsible for ensuring that traffic from one pod reaches the correct pod.
+      - Service proxy runs on each and every worker node and is responsible for watching the API server for any changes in service configuration 
+        (any network-related configuration).    
+      - Based on the configuration service proxy manages the entire network of worker nodes.
+      - Network proxy that is used to route traffic between pods. The Kubernetes Proxy is responsible for ensuring that traffic from one pod 
+        reaches the correct pod.
         
     3.Conatainer runtime interface
      	- The software responsible for running containers, such as Docker or containerd.
@@ -71,7 +77,8 @@ WORKER NODE:
         - This is used to do the actual configuration of the object.
 
 5. Deployment controller / Deployment / Deployment k8s
-       - Deployment is used to create replicas of similar kind of pods and It makes sure that at a given point of time that number of replicas of pods is always running by using ReplicaSet 
+       - Deployment is used to create replicas of similar kind of pods and It makes sure that at a given point of time that number of replicas of 
+         pods is always running by using ReplicaSet 
          controller.
        - If we update the configuration of deployment, it will automatically updates in all the pod replicas.
        - Rollout and Rollback of pod update is possible. 
@@ -177,7 +184,8 @@ EXAMPLE:
     - These applications contains User session data is saved on the server side.
     - if the server goes down, it is difficult to transfer the session data to another server. 
     - This type of application will not work, if we want to implement autoscaling.
-    - Stateful applications are suitable for scenarios where data persistence and strong consistency are vital, such as databases, financial applications, Auth Gateways, and ERP systems.
+    - Stateful applications are suitable for scenarios where data persistence and strong consistency are vital, such as databases, financial 
+      applications, Auth Gateways, and ERP systems.
 
    stateless
     - user session data is never saved on the server side.
@@ -193,7 +201,8 @@ EXAMPLE:
     Microservice architecture 
         - A microservice application is composed of small (micro) services. 
         - Each service will have a different code base.
-        - Applications are divided into as small as possible sub-applications called services which are independent of each other and are called loosely coupled.    
+        - Applications are divided into as small as possible sub-applications called services which are independent of each other and are called 
+          loosely coupled.    
         - Each service can be managed separately and it is deployable separately.
         - Services need not to share the same technology stack or frameworks.
 
@@ -207,22 +216,24 @@ EXAMPLE:
     ClusterIP
         - This is the default type of service in k8S.
         - Accessible within the cluster. Dependent applications can interact with other applications internally using the ClusterIP service.
-
+    
     NodePort
         - This service is the most primitive way to establish the external traffic directed to our applications 
           running inside the cluster in pods.
         - Automatically a ClusterIP will also be created internally.
                                                             
                                       NodePort = ClusterIP + a port mapping to all the nodes ip's.         
-
+     
         - If we won't specify any port while creating NodePort, k8s will Automatically assign a random port between 30000 - 32767
+    
+    LoadBalancer
+        - To exposes the Service externally we need to use an external load balancer. Kubernetes does not directly offer a load-balancing 
+          component, So To exposes the Service externally you need to integrate your Kubernetes cluster with a cloud provider.
+        - This service type creates load balancers in various Cloud providers like AWS, GCP, Azure, etc., to expose our application to the 
+          Internet and The Cloud provider will provide a mechanism for routing the traffic to the services.
 
- LoadBalancer
-    - To exposes the Service externally we need to use an external load balancer. Kubernetes does not directly offer a load-balancing component, So To exposes the Service externally you need 
-      to integrate your Kubernetes cluster with a cloud provider.
-    - This service type creates load balancers in various Cloud providers like AWS, GCP, Azure, etc., to expose our application to the Internet and The Cloud provider will provide a  
-      mechanism for routing the traffic to the services.
-
+   Headless
+	- has no loadbalancer in it and provides ip address for all pod  
 
 
 
