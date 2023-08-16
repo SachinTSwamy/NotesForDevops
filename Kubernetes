@@ -233,8 +233,12 @@ EXAMPLE:
           Internet and The Cloud provider will provide a mechanism for routing the traffic to the services.
 
    Headless
-	- has no loadbalancer in it and provides ip address for all pod  
+	- it is a services that don't need load-balancing and a single Service IP and it is used in statefulset controller.
 
+
+statefulset controller:
+	- it is a controller that used to manage stateful applications. and Unlike a Deployment,a StatefulSet maintains a sticky identity for 
+          each of its Pods.
 
 
 
