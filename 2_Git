@@ -1,3 +1,17 @@
+1.what is Branching strategy?
+  A branching strategy is a set of rules that govern how branches are created, managed, and merged in a software development project. The goal 
+  of a branching strategy is to ensure that code is developed and maintained in a way that is efficient, reliable, and secure.
+  - some common branching strategies include
+        GIT flow
+        Github flow
+        text based development
+        Gitlab flow etc..
+
+2. what is readme.md file
+
+
+3. what is webhook
+    Webhook is a mechanism to automatically trigger the build of a Jenkins project in response to a commit pushed to a Git repository.
 
 Remote Repository:
   - A remote repository is a Git repository hosted on a remote server or a code hosting platform like GitHub, GitLab, or Bitbucket.
