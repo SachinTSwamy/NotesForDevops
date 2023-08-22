@@ -1,7 +1,7 @@
 1. what is kubernates?
 Kubernetes or k8s for short, it is a open source platform that manages containzered application hence also called as container orcheration tool and it automates the deployment, scaling, and management of containerized applications, making it easier to manage complex applications across a cluster of machines.
 
-2. Define architecture of kubernetes?
+2. Define architecture of kubernetes? 
 Kubernetes architecture is designed around master-slave model, that is control plane which manage and oversees the entire cluster it includes 
 components like API server, etcd, scheduler, control manager and it has worker node or node it includes components like kubelet, kube proxy, CRI.
 CONTROL PLANE:
