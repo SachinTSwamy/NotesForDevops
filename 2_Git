@@ -8,10 +8,17 @@
         Gitlab flow etc..
 
 2. what is readme.md file
-
+  A README.md file is a Markdown file that provides information about a project or repository. It is typically the first file that users see when 
+  they visit a project's GitHub page.
 
 3. what is webhook
     Webhook is a mechanism to automatically trigger the build of a Jenkins project in response to a commit pushed to a Git repository.
+
+4. git architecture
+   Git is a distributed version control system that uses a three-stage architecture to track changes to files. The stages are:
+      - Working tree: The working tree is the actual files that you are working on. It is where you make changes to your code.
+      - Staging index: The staging index is a temporary holding area for changes that you want to commit to the repository.
+      - Repository: The repository is the permanent storage for your data. It is where all of your commits are stored.
 
 Remote Repository:
   - A remote repository is a Git repository hosted on a remote server or a code hosting platform like GitHub, GitLab, or Bitbucket.
