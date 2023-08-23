@@ -233,13 +233,123 @@ EXAMPLE:
           Internet and The Cloud provider will provide a mechanism for routing the traffic to the services.
 
    Headless
-	- it is a services that don't need load-balancing and a single Service IP and it is used in statefulset controller.
+	- it is a services that don't need load-balancing and a single Service IP and it is used in statefulset controller. 
+        - using Headless service we can get all the target pod ips, if we do nslookup.
+        - It is created by specifying 'none' for ClusterIP
+        - Headless service is usually used with the StatefullSet controller.
 
-
-statefulset controller:
+13.statefulset controller:
 	- it is a controller that used to manage stateful applications. and Unlike a Deployment,a StatefulSet maintains a sticky identity for 
           each of its Pods.
 
+14. Service discovery?
+	- it is mechanism that is used to find microservices in a cluster. basically it logical grouping of pod that provides a single point of 
+          access to group of pods.
+        - there are 3 ways to create a service discovery
+	1. Services 
+	     - we can use the name of the service or the full qualified name of the service to discover a microservice (pods).
+	       ex: <service_name>  or service/<service_name> 
+
+        2. DNS
+             - DNS server is added to the cluster in order to watch the k8s service request.
+             - The API server will create DNS records for each new service.
+             - Record A type is used in k8s service discovery and this DNS is created on service and pod objects.
+
+		          syntax: 
+		                    mail.google.com 
+		                    .com (top-level domain type)
+		                    google (name of the main domain)
+		                    mail (name of the subdomain)    
+		          K8S DNS
+		                  <object_name>.<namespace_name>.<object_type>.cluster.local
+		                  ex: my-clusterip-ip-app.default.svc.cluster.local    
+    
+        3. Default ENV variables 
+           - These are environment variables that k8s auto creates in each and every pod which is connected to a service 
+
+15. Pod lifecycle 
+    1. pending 
+        - This is the state of the pod when the pod will be waiting for the k8s cluster to accept it.
+        - pod will be downloading large-sized images from the registry.
+        - pod will be in a pending state if the scheduler still trying to assign to a node.
+
+    2. Running 
+        - The pod got a node assigned and all the containers inside the pods are running.
+        - At least one container is running and the other in starting state (no container should be in exited)
+        
+    3. Failed 
+        - All the containers in the pod should not be running and at least one container should be in a terminated state in failure.
+    
+    4. Succeeded 
+        - All the containers in the pod have been terminated successfully / gracefully 
+    
+    5. Unknown 
+        - For some other reason the API server can not get the pod state then it will put the pod in an Unknown state 
+        - When k8s can't communicate with the worker node it will put all the pods of that worker node to unknown.
+
+    6. Terminating
+        - when the pod is being deleted 
+    
+16. Container status 
+        Running 
+            - When a container is running the process without error 
+        Terminated 
+            - Process inside the container has completed the execution successfully or it may be failed due to an error.
+        Waiting
+            - If a container is not running or neither in the terminated state.
+
+17. container patterns?
+	init container 
+            - init containers are the containers that will run completely before starting the main app container.
+            - This provides a lifecycle at the startup and we can define things for initialization purposes.
+            - Kubernetes has stopped the support of probes in init containers.
+            - These are pod-level objects.
+            - we can use this container to have some delay in the startup of the main container.
+
+	Sidecar container 
+	    - These are the containers that will run along with the main app container.
+    	    - we have an app container that is working fine but we want to extend the functionality without changing the existing code in the 
+              main container for this purpose we can use the sidecar container.
+            - we use this container to feed the log data to monitoring tools.    
+
+       Adaptor container 
+            - In this pattern, we use a sidecar container to feed the log data to a monitoring tool.
+
+18. Probe in k8s?
+	 - it is a mechanism provided by Kubernetes which helps determine if applications running within containers are operational.
+         - We use probes to track the success or failure status of other applications
+	 - there are three types of probe
+	     1.Liveness probe 
+		  - A liveness probe checks whether a container is still alive and running as expected. If the liveness probe fails, Kubernetes 
+                    will take action to restart the container. 
+
+		  - Liveness probes can be configured to use different mechanisms:
+
+			HTTP Probe : Sends an HTTP request to a specified endpoint within the container. If the response code indicates an error  
+                                    (e.g., 5xx), the probe is considered failed.
+			TCP Probe  : Attempts to establish a TCP connection to a specific port of the container. If the connection cannot be 
+                                    established, the probe fails.
+			Exec Probe : Executes a specified command inside the container. If the command returns a non-zero exit code, the probe 
+                                     fails.
+			
+	     2.Readiness probe 
+		  - A readiness probe checks whether a container is ready to start receiving traffic. If a container fails its readiness probe, 		    Kubernetes will remove it from the service's load balancer, preventing incoming traffic until the probe passes.
+			 
+             3.Startup Probe 
+		  - Startup probes are helpful for containers that have a significant initialization process.
+		  - If a applications require additional time to initialize and become fully operational. For example, database systems might 	 
+                    need to perform schema migrations or load data during startup.      
+
+     Common fields in probe
+	     - initialSecondsDelay: After the container started the number of seconds to wait before starting the probe.
+	     - periodSeconds: The number of seconds interval taken to execute the probe.
+	              (Default 10 seconds and minimum 1 second)
+	     - timeoutSeconds: The number of seconds after which probe timeouts 
+	              (default 1)     
+	     - failureThreshold: When a probe fails this is the number of subsequent failure times the probe check the application endpoint.
+	              (Default 3 times and minimum 1 time)
+	     - successThreshold: minimum number of subsequent successes for a probe.
+	              (Default 1 time and minimum 1 time)
 
 
 
@@ -247,12 +357,6 @@ statefulset controller:
 
 
 
-
-
-
-
-
-kkk
 
 
 
