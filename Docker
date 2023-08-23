@@ -131,7 +131,8 @@ Bind mount
                                              docker -v <host_path>:<container_path>
       The changes made in the host will retain in a container and also changes made inside the container in this location will retain in the host 
       If the container is deleted host directory will not be deleted (data persistence).
-      It is not preferable to mount a single directory to multiple containers. (multiple containers processes may try to write the data to the same file which is not possible)
+      It is not preferable to mount a single directory to multiple containers. (multiple containers processes may try to write the data to the 
+      same file which is not possible)
 
 Volumes 
 
@@ -233,4 +234,4 @@ cgroups (To list - lscgroup)
 12. docker prune
 
     The docker prune command is used to remove unused Docker images, containers, and networks.
-      docker image prune 
+          docker image prune 
