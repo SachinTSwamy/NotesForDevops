@@ -1,0 +1,6 @@
+1. ansible?
+    - Ansible is an open-source automation tool that provides a simple and powerful way to automate various IT tasks, from push based configuration 
+      management that uses agentless configuration management tool
+    - Ansible does not require an agent on a remote/target host to perform any operation
+    - Minimum requirement is that the host machines should have python installed on it
+    - We only require an ssh connection between the controller (ansible is running) and the host machines.
