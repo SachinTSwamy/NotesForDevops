@@ -1,0 +1,22 @@
+1. what is ansible?
+    - Ansible is an open-source automation tool that provides a simple and powerful way to automate various IT tasks, that uses a push based 
+      configuration and has a agentless configuration management tool.
+    - Ansible does not require an agent on a remote/target host to perform any operation.
+    - Minimum requirement is that the host machines should have python installed on it.
+    - We only require an ssh connection between the controller (ansible is running) and the host machines.
+
+ Unline chef and puppet which uses pull based configuration that is agent is placed at each and every host server.
+
+2. Playbook?
+    - it is a yaml file where you write the configuration for servers
+    - Playbook contain n number of plays
+    - Each play is designated to run n number of tasks
+    - Each task is designated to execute a module (one module per task)
+    - module is a set of instrustions that perform a task.
+
+3. Inventory / host file?
+    it is a file that contains all the servers ip address for configurations
+    it can also be grouped by using a name within a square bracket and followed by server ip's.
+
+4.
+
