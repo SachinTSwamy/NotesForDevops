@@ -73,32 +73,32 @@
     AWS Lambda is a serverless compute service that lets you run code without handling servers. It automatically scales and manages the 
     infrastructure required to run your code in response to events.
 
-8. Route53
+8. Route53(R53)
     Amazon Route 53 is a Domain Name System (DNS) web service that helps route user requests to AWS resources or external endpoints.
 
-1) Domain Name System (DNS) 
-	 DNS is a globally distributed service that translates human readable names like www.google.com into the numeric IP addresses like 192.0.2.1 
-   that specify the location of computers on the Internet,
+    1) Domain Name System (DNS) 
+	 DNS is a globally distributed service that translates human readable names like www.google.com into the numeric IP addresses like 
+         192.0.2.1 that specify the location of computers on the Internet,
 	
-2) Domain name registration
+    2) Domain name registration
 	 Where you can register a domain name to your ip address.
 
-3) DNS records
+    3) DNS records
 	 You can create and manage your public DNS records is a record that maps a domain name to an IP address. It is used to route traffic to 
-   websites and applications that are hosted on the internet.
+         websites and applications that are hosted on the internet.
 
                   • A record - Maps domain name to ip address (IPV4 and AAAA is for IPV6)
                   • Cname - Maps hostname to hostname
                   • Aliases - Maps domain name to aws resources.
 
-4) health-checking web services.
-	 Amazon Route 53 health checks monitor the health of your resources and ensure that they are available to receive traffic. You can use health 
-        checks to monitor the health of your web services, such as Amazon EC2 instances, Amazon S3 buckets, and Amazon RDS databases.
-   When you create a health check, you specify the endpoint that you want to monitor. The endpoint can be an IP address, a domain name, or a 
-        CloudWatch alarm. Route 53 then periodically sends requests to the endpoint. If the endpoint responds to the requests, Route 53 considers 
-        the endpoint to be healthy. If the endpoint does not respond to the requests, Route 53 considers the endpoint to be unhealthy.
+    4) health-checking web services.
+        - Amazon Route 53 health checks monitor the health of your resources and ensure that they are available to receive traffic. You can use 
+           health checks to monitor the health of your web services, such as Amazon EC2 instances, Amazon S3 buckets, and Amazon RDS databases.
+        - When you create a health check, you specify the endpoint that you want to monitor. The endpoint can be an IP address, a domain name, or 
+          a CloudWatch alarm. Route 53 then periodically sends requests to the endpoint. If the endpoint responds to the requests, Route 53 
+          considers the endpoint to be healthy. If the endpoint does not respond to the requests, Route 53 considers the endpoint to be unhealthy.
 
-Routing Policies:
+Routing Policies:(RPS)
 
       - Simple routing policy. 
                       This policy routes traffic to a single endpoint. This is the simplest routing policy and is ideal for applications that 
@@ -155,37 +155,37 @@ Routing Policies:
       virtual private cloud (VPC) is a virtual network dedicated to your AWS account. It is logically isolated from other virtual networks in the 
       AWS Cloud. You can specify an IP address range for the VPC, add subnets, gateways, and security groups.
 
-1.CIDR
+      1.CIDR
      - Classless Inter-Domain Routing - When you create a VPC, you must specify a range of IPv4 addresses for the VPC in the form of CIDR.
 
-2.Subnet
+     2.Subnet
      - Subnet is a logical subdivision of an IP network. It is a range of IP-address in your VPC. You can launch AWS resources into a specified 
        subnet.
 
-3.Route Table
+     3.Route Table
      - It is a interface which connects IGW, NAT, subnets in the VPC. It helps to configure route by specifying gateway and associate specific 
        subnets to the table.
 
-4.Internet Gateway 
+     4.Internet Gateway 
      - It is a gateway which is connected to the VPC to route traffic to and from the internet.
 
-5.NAT Gateway 
+     5.NAT Gateway 
      - It is a gateway through which resources in the private subnet can get access to the internet. A NAT Gateway is a device used to enable 
        instances in a private subnet to connect to the internet or other AWS services.
 
-6.VPC Peering
-    - A VPC peering connection is a networking connection between two VPCs that enables you to route traffic between them using private IPv4 
+     6.VPC Peering
+     - A VPC peering connection is a networking connection between two VPCs that enables you to route traffic between them using private IPv4 
       addresses or IPv6 addresses.
 
-7.Security Groups
-    - It is a stateful service which acts like a firewall at the instance level to route inbound and outbound traffic by defining inbound and 
+     7.Security Groups
+     - It is a stateful service which acts like a firewall at the instance level to route inbound and outbound traffic by defining inbound and 
       outbound rules.
 
-8.Network ACL
-    - Network ACL is a stateless service work as firewall to the subnet level which route inbound and outbound traffic to the subnet by  
+     8.Network ACL
+     - Network ACL is a stateless service work as firewall to the subnet level which route inbound and outbound traffic to the subnet by  
       configuring inbound and outbound rules.
 
-9.VPC Endpoints
+     9.VPC Endpoints
      - A VPC endpoint enables customers to privately connect to supported AWS services and VPC endpoint services powered by AWS PrivateLink.
      - so it doesn't require public IP addresses to communicate with resources of the service. Traffic between an Amazon VPC and a service does 
        not leave the Amazon network.
@@ -193,18 +193,18 @@ Routing Policies:
                     - Gateway endpoints – for Amazon S3 and Dynamo DB
                     - Interface endpoints – Many services listed below
 
-10.Bastion Host or Jump Server
-    - BASTION host are EC2 instances present in the public subnet and connected to the private instance in the private subnet inorder to route 
+     10.Bastion Host or Jump Server
+     - BASTION host are EC2 instances present in the public subnet and connected to the private instance in the private subnet inorder to route 
       traffic from external network to the private instance. It is used to communicate instances in the private subnet.
 
-11.VPN – Virtual Private Network
-    - It is a tunnel established to the private network to access resources using private IP address.
-    - There are two types of VPN
+     11.VPN – Virtual Private Network
+     - It is a tunnel established to the private network to access resources using private IP address.
+     - There are two types of VPN
         1. Site-to-site VPN - A secure connection between your on-premises equipment and your VPCs.
         2. Client VPN       - is a managed client-based VPN service that enables you to securely access AWS resources and resources in your    
                               on-premises network.
                                
-12. IAM 
+11. IAM 
  - IAM stands for Identity and Access Management. It is a web service that helps you manage users, groups, and permissions in AWS. IAM allows 
       you to control who has access to your AWS resources and what they can do with those resources.
 
@@ -229,18 +229,18 @@ Routing Policies:
  - Permissions boundaries are a new type of policy that can be used to control the permissions of IAM entities. They define what actions those 
                entities cannot take, rather than what they can do.
 
-13. SQS
-    Amazon Simple Queue Service (SQS) is a fully managed message queuing service that makes it easy to decouple and scale microservices, distributed systems, and serverless applications. SQS 
-    moves data between distributed application components and helps you decouple these components.
+12. SQS
+    Amazon Simple Queue Service (SQS) is a fully managed message queuing service that makes it easy to decouple and scale microservices, 
+    distributed systems, and serverless applications. SQS moves data between distributed application components and helps you decouple these 
+    components.
 
     SQS offers two types of queues:
 
-    Standard queues: Standard queues are the most common type of queue. They are durable, reliable, and offer high throughput.
-    FIFO queues: FIFO queues guarantee that messages are processed in the order in which they are sent. They are ideal for applications that 
-    require strict message ordering, such as 
-    financial transactions.
+    - Standard queues: Standard queues are the most common type of queue. They are durable, reliable, and offer high throughput.
+    - FIFO queues: FIFO queues guarantee that messages are processed in the order in which they are sent. They are ideal for applications that 
+                   require strict message ordering, such as financial transactions.
 
-14. LB
+13. LB
     Load balancing in AWS is the process of distributing traffic across multiple servers. This can help to improve the scalability, performance, 
     and availability of your application. AWS offers a variety of load balancers that can be used for different purposes.
 
@@ -254,7 +254,7 @@ Routing Policies:
                     A GLB is a Layer 7 load balancer that can route traffic to different AWS regions or services. GLBs are commonly used to 
                     distribute traffic to global applications.
 
-15. AWS secret
+14. AWS secret
     An AWS secret is a piece of sensitive data that you want to store securely. AWS Secrets Manager is a service that helps you manage secrets 
     securely. You can use Secrets Manager to store a variety of secrets, including:
 
@@ -264,7 +264,7 @@ Routing Policies:
       Salesforce passwords
       TLS certificates
 
-16. S3
+15. S3
     Amazon Simple Storage Service (S3) is an object storage service that offers highly durable and available storage for a wide range of use 
     cases. You can use S3 to store any type of data, including images, videos, documents, and application data.
 
@@ -308,7 +308,7 @@ Routing Policies:
         - You can use bucket policies to add or deny permissions for the objects in a bucket. You can allow or deny requests based on the 
                 elements in the policy.
 
-17. RDS
+16. RDS
      RDS is a relational database which is a structured in nature and it is table based form where accessing, updating and treviersing of data 
      become so easier.
                     PostgreSQL
@@ -316,6 +316,6 @@ Routing Policies:
                     MySQL
                     Oracle
 
-18. DynamoDB
+17. DynamoDB
       DynamoDb is a Non-relational database which is a un-structuredin nature that is the from of key-value pair, document based, graph and wide 
       column store data is stored. 
