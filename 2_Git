@@ -1,6 +1,6 @@
 1.what is Branching strategy?
-  A branching strategy is a set of rules that govern how branches are created, managed, and merged in a software development project. The goal 
-  of a branching strategy is to ensure that code is developed and maintained in a way that is efficient, reliable, and secure.
+  A branching strategy is a set of rules that govern how branches are created, managed, and merged in a software development project.
+  The goal of a branching strategy is to ensure that code is developed and maintained in a way that is efficient, reliable, and secure.
   - some common branching strategies include
         GIT flow
         Github flow
@@ -8,8 +8,8 @@
         Gitlab flow etc..
 
 2. what is readme.md file
-  A README.md file is a Markdown file that provides information about a project or repository. It is typically the first file that users see when 
-  they visit a project's GitHub page.
+  A README.md file is a Markdown file that provides information about a project or repository. It is typically the first file that 
+  users see when they visit a project's GitHub page.
 
 3. what is webhook
     Webhook is a mechanism to automatically trigger the build of a Jenkins project in response to a commit pushed to a Git repository.
@@ -22,13 +22,16 @@
 
 Remote Repository:
   - A remote repository is a Git repository hosted on a remote server or a code hosting platform like GitHub, GitLab, or Bitbucket.
-  - It acts as a centralized location for collaborating changes from multiple developers, where multiple developers can push and pull     changes to keep the repository in sync.
-  - We can not do any changes directly to remote repository and a valid user with proper access can push changes to remote repo from only local repo.
+  - It acts as a centralized location for collaborating changes from multiple developers, where multiple developers can push and pull 
+    changes to keep the repository in sync.
+  - We can not do any changes directly to remote repository and a valid user with proper access can push changes to remote repo from 
+    only local repo.
 
 Local Repository:
   - A local repository is a copy of a Git repository that resides on your local machine.
   - It contains the complete copy of the repo repository, including all branches, commits, and files etc.
-  - The local repository allows you to make changes, commit them, switch between branches, and perform Git operations without needing a live network connection to remote repo.
+  - The local repository allows you to make changes, commit them, switch between branches, and perform Git operations without needing a 
+    live network connection to remote repo.
   - You can create a local repository by initializing a new repository with git init or cloning an existing repository using git clone.
   
   #To get a local repo / to download / clone a remote repo 
@@ -73,11 +76,13 @@ git push
   
 git pull 
   - git pull is a command used to fetch and merge changes from a remote repository into your local repository.
-  - When others pushed changes to the remote repository, you can use git pull to update your local repository to get new commits from remopte repository.
+  - When others pushed changes to the remote repository, you can use git pull to update your local repository to get new commits
+    from remopte repository.
 
 git merge vs rebase 
 
-Both git merge and rebase are used to combines the changes from one branch into another branch but different approaches to integrating changes from one branch into another in Git
+Both git merge and rebase are used to combines the changes from one branch into another branch but different approaches to 
+integrating changes from one branch into another in Git
 
 merge 
    - Merge creates a new commit which shows the changes combined from both branches. 
